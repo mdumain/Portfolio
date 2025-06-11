@@ -1164,3 +1164,132 @@ body {
         grid-template-columns: 1fr;
     }
 }
+
+  .trace {
+      display: flex;
+      align-items: flex-start;
+      margin: 3rem 0;
+    }
+    /* Sur les éléments pairs, on inverse l’ordre */
+    .trace:nth-child(even) {
+      flex-direction: row-reverse;
+    }
+    .trace img {
+      width: 65%;
+      max-width: 1020px;
+      margin: 35px;
+      margin-top: 0px;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    .trace .texte {
+      width: 35%;
+      padding: 0 2rem;
+      font-family: Arial, sans-serif;
+      color: #333;
+      line-height: 1.6;
+    }
+    .trace .texte h3 {
+      margin-top: 0;
+      font-size: 1.5rem;
+      color: #222;
+    }
+    .trace .texte ul {
+      margin: 0.5rem 0 1.5rem 1.5rem;
+    }
+    .trace .texte ul li {
+      margin-bottom: 0.5rem;
+    }
+    .trace .texte strong {
+      display: block;
+      margin-top: 1rem;
+      color: #444;
+    }
+
+
+    #traces h2 {
+        text-align: center;
+        font-size: 2.5em;
+    }
+
+
+        /* Trace Cards */
+    .trace {
+    background: #fff;                  /* fond blanc comme vos project-cards */
+    border-radius: 10px;               /* coins arrondis */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);  /* ombre douce */
+    overflow: hidden;                  /* pour arrondir l’image si elle déborde */
+    margin: 35px;
+    display: flex;
+    align-items: stretch;              /* étire l’image/texte sur toute la hauteur de la carte */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    }
+
+    /* Inversion sur pairs */
+    .trace:nth-child(even) {
+    flex-direction: row-reverse;
+    }
+
+    /* Image de la trace */
+    .trace img {
+    width: 60%;
+    /* on conserve le cover pour remplir la boîte */
+    object-fit: cover;
+    /* on ancre le crop à gauche, centre vertical */
+    object-position: left center;
+    display: block;
+    }
+
+    /* Texte de la trace */
+    .trace .texte {
+    width: 40%;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;           /* centre verticalement le bloc texte */
+    font-family: 'Poppins', sans-serif;
+    }
+
+    /* Titres et listes */
+    .trace .texte h3 {
+    margin-top: 0;
+    font-size: 1.75rem;
+    color: #007bff;                    /* couleur accent du site */
+    }
+    .trace .texte ul {
+    margin-left: 1.5rem;
+    }
+    .trace .texte strong {
+    margin-top: 1.5rem;
+    display: block;
+    font-size: 1.1rem;
+    color: #333;
+    }
+
+    .trace:hover {
+  /* relève la carte et renforce l'ombre */
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+
+
+.mod-link-button {
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  margin: 1px;
+  background-color: #007bff;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.mod-link-button:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+
