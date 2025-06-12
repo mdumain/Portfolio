@@ -12,6 +12,29 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="script.js" defer></script>
+
+    <!-- Chargement du SDK EmailJS v4 -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+    </script>
+    <script>
+        (function () {
+            // Initialisation avec votre Public Key
+            emailjs.init({
+                publicKey: "UTFN8K5g5AEGPFDw8"
+            });
+        })();
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?
+    family=Montserrat:wght@400;500;600;700&
+    family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+
+
+
+
 </head>
 
 <body>
@@ -110,8 +133,9 @@
                     <a href="https://github.com/LucaDussol/ArkaneStudio" class="github-link" target="_blank">
                         <i class="fa-brands fa-github"></i> Voir sur GitHub
                     </a>
-                    <a href="https://lucadussol.github.io/ArkaneStudio" class="mod-link-button" target="_blank" rel="noopener">
-                    Voir le site
+                    <a href="https://lucadussol.github.io/ArkaneStudio" class="mod-link-button" target="_blank"
+                        rel="noopener">
+                        Voir le site
                     </a>
                 </div>
 
@@ -121,21 +145,22 @@
                     <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3241660/1ea445e044a2d5b09cfa8291350b63ebed6e5741/header.jpg?t=1747381002"
                         alt="Project 3">
                     <h3>Plugin jeu R.E.P.O</h3>
-                    <p>Plugin C# pour REPO qui désactive la consommation de stamina en temps réel. 
+                    <p>Plugin C# pour REPO qui désactive la consommation de stamina en temps réel.
                         Utilise Harmony pour patcher dynamiquement la méthode de stamina.</p>
                     <div class="tech-stack">
                         <span>Html</span>
                         <span>CSS</span>
                     </div>
 
-                 
+
                     <a href="https://github.com/mdumain/REPO-InfiniteStamina" class="github-link" target="_blank">
                         <i class="fa-brands fa-github"></i> Voir sur GitHub
                     </a>
-                    <a href="https://thunderstore.io/c/repo/p/GalaCorp/InfiniteStamina/" class="mod-link-button" target="_blank" rel="noopener">
-                    Voir le mod
+                    <a href="https://thunderstore.io/c/repo/p/GalaCorp/InfiniteStamina/" class="mod-link-button"
+                        target="_blank" rel="noopener">
+                        Voir le mod
                     </a>
-               
+
                 </div>
 
             </div>
@@ -274,11 +299,47 @@
                     <p><strong>Email:</strong> mdumain70@gmail.com</p>
 
                     <p><strong>Adresse:</strong> Belfort, France</p>
-                    <p>Vous pouvez me contacter via email.</p>
+                    <p>Vous pouvez me contacter via le formulaire ou via mail directement.</p>
                     <div class="social-links">
-                        <a href="#" target="_blank"><i class="fa-brands fa-github"></i></a>
+                        <a href="https://github.com/mdumain" target="_blank"><i class="fa-brands fa-github"></i></a>
                     </div>
                 </div>
+
+
+                <form id="contact-form">
+                    <h2>Formulaire</h2>
+                    <input type="text" id="user_name" name="user_name" placeholder="Votre nom" required>
+                    <input type="email" id="user_email" name="user_email" placeholder="Votre email" required>
+                    <textarea id="message" name="message" placeholder="Votre message" required></textarea>
+                    <button type="submit">Envoyer</button>
+                </form>
+
+                <script>
+                    document.getElementById('contact-form').addEventListener('submit', function (e) {
+                        e.preventDefault();
+
+                        // Récupération des valeurs du formulaire
+                        const payload = {
+                            user_name: document.getElementById('user_name').value,
+                            user_email: document.getElementById('user_email').value,
+                            message: document.getElementById('message').value,
+                            // Destinataire : doit correspondre à la variable de ton template
+                            to_email: 'mdumain70@gmail.com'
+                        };
+
+                        emailjs.send('service_6t7je3t', 'template_kdtb30r', payload)
+                            .then(response => {
+                                console.log('SUCCESS', response);
+                                alert('Message envoyé !');
+                            }, error => {
+                                console.error('FAILED', error);
+                                alert('Erreur… ' + JSON.stringify(error));
+                            });
+                    });
+                </script>
+
+
+
             </div>
         </div>
     </section>
